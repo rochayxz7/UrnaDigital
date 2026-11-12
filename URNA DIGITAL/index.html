@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urna Digital | Você está no controle?</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>URNA DIGITAL</h1>
+        <p>Você está no controle da sua vida digital?</p>
+    </header>
+
+    <main>
+
+        <!-- TELA INICIAL -->
+        <section class="inicio" id="tela-inicio">
+            <h2>Suas escolhas revelam seus hábitos digitais</h2>
+
+            <p>
+                Uma experiência interativa sobre privacidade,
+                segurança e comportamento na internet.
+            </p>
+
+            <button id="iniciar-quiz">Iniciar votação</button>
+
+            <button id="ver-resultados" class="botao-secundario">
+                Ver resultados
+            </button>
+        </section>
+
+        <!-- TELA DAS PERGUNTAS -->
+        <section class="quiz" id="tela-quiz" hidden>
+
+            <div class="quiz-topo">
+                <span id="numero-pergunta">Pergunta 1 de 5</span>
+
+                <div class="barra-progresso">
+                    <div id="progresso"></div>
+                </div>
+            </div>
+
+            <h2 id="texto-pergunta"></h2>
+
+            <div id="alternativas"></div>
+
+            <button id="confirmar-resposta" disabled>
+                Confirmar resposta
+            </button>
+        </section>
+
+        <!-- VOTAÇÃO CONCLUÍDA -->
+        <section class="conclusao" id="tela-conclusao" hidden>
+            <h2>Voto registrado! 💜</h2>
+
+            <p>
+                As cinco respostas foram contabilizadas
+                com sucesso.
+            </p>
+
+            <button id="proximo-participante">
+                Próximo participante
+            </button>
+
+            <button id="resultados-conclusao" class="botao-secundario">
+                Ver resultados
+            </button>
+        </section>
+
+        <!-- PAINEL DE RESULTADOS -->
+        <section class="resultado" id="tela-resultado" hidden>
+            <h2>Painel de Resultados</h2>
+
+            <p>
+                Estatísticas gerais da Urna Digital.
+            </p>
+
+            <div class="total-participantes">
+                <span>Participantes</span>
+                <strong id="quantidade-participantes">0</strong>
+            </div>
+
+            <div id="grafico-resultados"></div>
+
+            <button id="exportar-resultados">
+                Exportar CSV
+            </button>
+
+            <button id="voltar-inicio" class="botao-secundario">
+                Voltar ao início
+            </button>
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
