@@ -1,0 +1,599 @@
+
+/* ==================================
+   URNA DIGITAL | ESTILO ROXO
+   ================================== */
+
+/* 1. PALETA DE CORES */
+
+:root {
+    --cor-fundo: #0D0718;
+    --cor-card: #1C1233;
+    --cor-primaria: #7C3AED;
+    --cor-destaque: #A78BFA;
+    --cor-texto: #F5F3FF;
+    --cor-paragrafo: #C4B5D9;
+    --cor-borda: #392657;
+}
+
+/* 2. CONFIGURAÇÕES GERAIS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:
+        radial-gradient(
+            circle at top,
+            #291449 0%,
+            #0D0718 65%
+        );
+
+    color: var(--cor-texto);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+/* 3. CABEÇALHO */
+
+header {
+    text-align: center;
+    padding: 35px 20px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+header h1 {
+    color: var(--cor-destaque);
+    font-size: 32px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 25px #7C3AED80;
+}
+
+header p {
+    color: var(--cor-paragrafo);
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+/* 4. CONTEÚDO PRINCIPAL */
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 30px 20px;
+}
+
+/* 5. TELA INICIAL */
+
+.inicio {
+    background: linear-gradient(
+        145deg,
+        #21143B,
+        #160E29
+    );
+
+    max-width: 650px;
+    width: 100%;
+    padding: 50px 40px;
+    border-radius: 20px;
+    border: 1px solid var(--cor-borda);
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px #00000060,
+        0 0 35px #7C3AED15;
+}
+
+.inicio h2 {
+    font-size: 30px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.inicio p {
+    color: var(--cor-paragrafo);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* 6. BOTÃO INICIAR */
+
+#iniciar-quiz {
+    background: linear-gradient(
+        135deg,
+        #7C3AED,
+        #9333EA
+    );
+
+    color: white;
+    border: none;
+    padding: 17px 38px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px #7C3AED50;
+    transition: 0.3s;
+}
+
+#iniciar-quiz:hover {
+    background: linear-gradient(
+        135deg,
+        #9333EA,
+        #A855F7
+    );
+
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px #9333EA70;
+}
+
+/* 7. TELA DAS PERGUNTAS */
+
+.quiz {
+    background: linear-gradient(
+        145deg,
+        #21143B,
+        #160E29
+    );
+
+    max-width: 650px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--cor-borda);
+
+    box-shadow:
+        0 20px 60px #00000060,
+        0 0 35px #7C3AED15;
+}
+
+/* Esconder telas inativas */
+
+.quiz[hidden],
+.inicio[hidden] {
+    display: none;
+}
+
+/* 8. TOPO DA PERGUNTA */
+
+.quiz-topo {
+    margin-bottom: 30px;
+}
+
+#numero-pergunta {
+    color: var(--cor-destaque);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* 9. BARRA DE PROGRESSO */
+
+.barra-progresso {
+    background-color: #392657;
+    height: 9px;
+    border-radius: 20px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+#progresso {
+    background: linear-gradient(
+        90deg,
+        #7C3AED,
+        #C084FC
+    );
+
+    height: 100%;
+    width: 20%;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+/* 10. TEXTO DA PERGUNTA */
+
+#texto-pergunta {
+    color: var(--cor-texto);
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 28px;
+}
+
+/* 11. ALTERNATIVAS */
+
+#alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.alternativa {
+    background-color: #291B43;
+    color: var(--cor-texto);
+    padding: 17px 20px;
+
+    border: 1px solid #49336A;
+    border-radius: 12px;
+
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.5;
+
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.alternativa:hover {
+    background-color: #352251;
+    border-color: var(--cor-destaque);
+    transform: translateX(4px);
+}
+
+.alternativa.selecionada {
+    background-color: #432475;
+    border: 2px solid #A78BFA;
+
+    box-shadow: 0 0 20px #7C3AED30;
+}
+
+/* 12. BOTÃO CONFIRMAR */
+
+#confirmar-resposta {
+    background: linear-gradient(
+        135deg,
+        #7C3AED,
+        #9333EA
+    );
+
+    color: white;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 12px;
+
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#confirmar-resposta:hover:not(:disabled) {
+    background: #A855F7;
+    transform: translateY(-2px);
+}
+
+#confirmar-resposta:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* 13. ACESSIBILIDADE */
+
+button:focus-visible {
+    outline: 3px solid #DDD6FE;
+    outline-offset: 4px;
+}
+
+/* 14. RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 28px 15px;
+    }
+
+    header h1 {
+        font-size: 25px;
+        letter-spacing: 2px;
+    }
+
+    header p {
+        font-size: 13px;
+    }
+
+    main {
+        padding: 20px 15px;
+        min-height: 65vh;
+    }
+
+    .inicio {
+        padding: 35px 22px;
+    }
+
+    .inicio h2 {
+        font-size: 24px;
+    }
+
+    .inicio p {
+        font-size: 15px;
+    }
+
+    #iniciar-quiz {
+        width: 100%;
+    }
+
+    .quiz {
+        padding: 28px 20px;
+    }
+
+    #texto-pergunta {
+        font-size: 20px;
+    }
+
+    .alternativa {
+        font-size: 15px;
+        padding: 15px;
+    }
+
+    #confirmar-resposta {
+        width: 100%;
+    }
+}
+
+/* 15. REDUZIR ANIMAÇÕES SE NECESSÁRIO */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+
+
+/* TELA DE RESULTADOS */
+
+.resultado {
+    background: linear-gradient(145deg, #21143B, #160E29);
+    max-width: 650px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--cor-borda);
+    box-shadow: 0 20px 60px #00000060;
+}
+
+.resultado[hidden] {
+    display: none;
+}
+
+.resultado h2 {
+    color: var(--cor-destaque);
+    font-size: 27px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.resultado p {
+    color: var(--cor-paragrafo);
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.linha-resultado {
+    margin-bottom: 22px;
+}
+
+.titulo-resultado {
+    color: var(--cor-texto);
+    margin-bottom: 9px;
+    font-weight: bold;
+}
+
+.barra-resultado {
+    height: 18px;
+    background-color: #392657;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.preenchimento-resultado {
+    height: 100%;
+    background: linear-gradient(90deg, #7C3AED, #C084FC);
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+#total-respostas {
+    margin-top: 25px;
+}
+
+#reiniciar-quiz {
+    display: block;
+    margin: 0 auto;
+    padding: 15px 30px;
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#reiniciar-quiz:hover {
+    background-color: #9333EA;
+}
+
+@media (max-width: 600px) {
+    .resultado {
+        padding: 28px 20px;
+    }
+}
+
+
+
+/* ==================================
+   URNA DIGITAL - PAINEL FINAL
+   ================================== */
+
+.inicio[hidden],
+.quiz[hidden],
+.conclusao[hidden],
+.resultado[hidden] {
+    display: none;
+}
+
+.conclusao,
+.resultado {
+    background: linear-gradient(145deg, #21143B, #160E29);
+    max-width: 750px;
+    width: 100%;
+    padding: 40px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px #00000060;
+}
+
+.conclusao {
+    text-align: center;
+}
+
+.conclusao h2,
+.resultado h2 {
+    color: var(--cor-destaque);
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+.conclusao p,
+.resultado > p {
+    color: var(--cor-paragrafo);
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.resultado h2,
+.resultado > p {
+    text-align: center;
+}
+
+.botao-secundario {
+    background: transparent;
+    color: var(--cor-destaque);
+    border: 1px solid var(--cor-destaque);
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.botao-secundario:hover {
+    background: #392657;
+}
+
+#proximo-participante,
+#exportar-resultados {
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 15px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#proximo-participante:hover,
+#exportar-resultados:hover {
+    background: #9333EA;
+}
+
+.total-participantes {
+    background: #301D4F;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.total-participantes span {
+    display: block;
+    color: var(--cor-paragrafo);
+    margin-bottom: 10px;
+}
+
+.total-participantes strong {
+    color: var(--cor-destaque);
+    font-size: 38px;
+}
+
+.bloco-resultado {
+    background: #281944;
+    border: 1px solid var(--cor-borda);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.bloco-resultado h3 {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.linha-resultado {
+    margin-bottom: 22px;
+}
+
+.titulo-resultado {
+    color: var(--cor-texto);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 5px;
+}
+
+.numero-resultado {
+    display: block;
+    color: var(--cor-destaque);
+    font-size: 13px;
+    margin-bottom: 9px;
+}
+
+.barra-resultado {
+    height: 15px;
+    background: #392657;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.preenchimento-resultado {
+    height: 100%;
+    background: linear-gradient(90deg, #7C3AED, #C084FC);
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+@media (max-width: 600px) {
+    .conclusao,
+    .resultado {
+        padding: 25px 18px;
+    }
+
+    .bloco-resultado {
+        padding: 20px 15px;
+    }
+
+    .conclusao h2,
+    .resultado h2 {
+        font-size: 24px;
+    }
+
+    #proximo-participante,
+    #exportar-resultados,
+    .botao-secundario {
+        width: 100%;
+        margin: 8px 0;
+    }
+}
